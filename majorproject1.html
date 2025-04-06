@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major-Project-1</title>
+   
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        *{
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+header {
+   
+    position: sticky;
+    top: 0px;
+    font: poppins;
+    display: flex;
+    padding-top: 20px;
+    padding-left: 29px;
+    background-color: #172934;
+    width: 100vw;
+    height: 94px;
+    gap: 20px;
+}
+
+.img {
+    width: 36px;
+    height: 36px;
+    background-image: url("/img/uno.png");
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.name {     
+    color: white;
+    line-height: 100%;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+.list {
+    padding-left: 550px;
+
+}
+
+li {
+    display: flex;
+    margin: 20px;
+    display: inline;
+    color: white;
+}
+
+.C {
+    margin-right: 60px;
+}
+
+.list button {
+    border: rgb(231, 91, 5) solid 1px;
+    border-radius: 5px;
+    background-color: #172934;
+    color: white;
+    padding: 2px;
+}
+
+
+.container {
+    width: 100vw;
+    background-color: #172934;
+    display: flex;
+    padding: 100PX;
+
+}
+
+div.hii {
+    width: 65vw;
+}
+.oneline{
+    color: white;
+    width: 100%;
+}
+
+
+.hii h1 {
+    color: white;
+    padding: 10px 10px 30px;
+}
+
+.oneline h3 span{
+    color: rgb(204, 93, 14);
+}
+
+.photo {
+    width: 314px;
+    height: 314px;
+    border-radius:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("data:image/jpeg;base64,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");
+}
+.lorem{
+   color: white;
+   padding-top:35px ;
+   width: 80%;
+}
+
+.outerskills{
+    width: 100vw;
+    background-color: wheat;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.myskills{
+    font-size: x-large;
+    height: 56px;
+    color: black;
+    
+}
+
+.myskills h1 span{
+    color: rgb(204, 93, 14);
+}
+
+.past{
+    padding: 20px;
+    font-size: x-large;
+}
+.skills{
+    /* height: 274px; */
+    padding: 10px;
+    width: 100vw;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+}
+.data{
+    width: 85%;
+    min-height: 10%;
+    border-radius:10px;
+    background-color: rgb(237, 233, 228);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    padding: 15px;
+}
+.one{
+    min-height: 46px;
+    min-width: 200px;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+}
+.ds{
+    border-radius: 5px;
+    padding: 4px;
+    height: 45px;
+    width: 180px;
+    gap: 20px;
+    display: flex;
+    border: solid orange 2px;
+}
+.dslogo{
+    height: 29px;
+    width: 28px;
+    background-image: url("/img/ds.png");
+   background-size: cover; 
+}
+
+.ml{
+    border-radius: 5px;
+    padding: 4px;
+    height: 45px;
+    width: 220px;
+    gap: 20px;
+    display: flex;
+    border: solid orange 2px;
+}
+.mllogo{
+    background-image: url("/img/ml.png");
+    background-size: cover;
+    height: 29px;
+    width: 28px;
+}
+.html{
+    border-radius: 5px;
+    padding: 4px;
+    height: 45px;
+    width: 100px;
+    gap: 20px;
+    display: flex;
+    border: solid orange 2px;
+}
+.htmllogo{
+    background-image: url("/img/html.png");
+    background-size: cover;
+    height: 29px;
+    width: 28px;
+}
+.css{
+    border-radius: 5px;
+    padding: 4px;
+    height: 45px;
+    min-width: 50px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid orange 2px;
+}
+.csslogo{
+    background-image: url("/img/css.png");
+    background-size: cover;
+    height: 29px;
+    width: 28px;
+}
+.react{
+    border-radius: 5px;
+    padding: 4px;
+    height: 45px;
+    min-width: 50px;
+    gap: 20px;
+    display: flex;
+    border: solid orange 2px;
+}
+.reactlogo{
+    background-image: url("/img/react.png");
+    background-size: cover;
+    height: 29px;
+    width: 28px;
+}
+.progress{
+    min-height: 500px;
+    width: 100vw;
+    background-color: wheat;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+.my{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    color: black;
+    font-size: x-large;
+}
+.progress h1 span{
+    color:rgb(204, 93, 14);
+}
+.demo{
+    font-size: x-large;
+
+}
+.linked button{
+    padding: 20px;
+    color: white;
+    min-height: 24px;
+    min-width: 220px;
+    border-radius: 8px;
+    background-color: rgb(204, 93, 14);
+    
+}
+.topic{
+    width: 85%;
+    display: flex;
+    gap: 20px;
+    padding-bottom: 50px;
+    align-items: center;
+}
+.topic1 {
+    width: 33%;
+    background-color: aliceblue;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    height: 325px;
+}
+.up{
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(183, 176, 176);
+}
+.down{
+   padding: 10px;
+}
+.project{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: wheat;
+    padding: 40px;
+    font-size: x-large;
+}
+.worked{
+    width: 100vw;
+    padding-bottom: 52px;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+.p{ 
+    /* min-height: 500px; */
+    width: 100vw;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+}
+.projectname{
+    width: 90%;
+    display: flex;
+    gap: 20px;
+    align-items: center
+}
+h4{
+    color: rgb(204, 93, 14);
+}
+.about{
+    
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(50, 49, 49, 0.6);
+    border-radius: 10px;
+    height: 425px;
+}
+.upp{
+   
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/img/project.png");
+    background-position: center;
+    background-size: cover;
+}
+.down2{
+    
+    background-color: white;
+    padding: 15px;
+}
+.edu{
+   
+    width: 100vw;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    padding: 102px 0px 52px ;
+}
+.details{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    font-size: x-large;
+}
+.some{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    font-size: x-large;
+}
+.outer{
+
+    padding: 40px 0px 40px;
+    gap: 25px;
+    width: 100vw;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.inner1{
+   justify-content: center;
+   align-items: center;
+    width: 100%;
+    gap: 40px;  
+    display: flex;
+}
+.coll div span{
+    color: rgb(204, 93, 14);
+    font-size: x-large;
+}
+.exp{
+    height: 45%;
+    box-shadow: 5px 5px 15px rgba(50, 49, 49, 0.6);
+    border-radius: 10px;
+    background-color: white;
+    width:45% ;
+    padding: 10px;
+    display: flex;
+}
+.coll{
+    width: 80%;
+}
+.img2{
+    height: 84px;
+    background-color: rgba(171, 228, 228, 0.388);
+    border-radius: 100%;   
+    width: 84px;
+}
+footer{
+    padding: 50px;
+    gap: 18px;
+    display: flex;
+    background-color: #172934;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+ footer span{
+    color: rgb(204, 93, 14);
+}
+.feel{
+    color: white;
+    font-size: x-large;
+}
+.git button{
+    background-color: #172934;
+    color: white;
+    border: solid  rgb(204, 93, 14) 1PX ;
+    border-radius: 7PX;
+    padding: 5PX;
+    margin: 2PX;
+}
+
+.k{
+    display: flex;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="img">
+            <!-- <img src="/img/uno.png" alt=""> -->
+        </div>
+        <div class="name">
+            <h3>Unendra Pal</h3>
+        </div>
+        <div class="list">
+            <ul>
+                <li>Skills</li>
+                <li>progress</li>
+                <li>Projects</li>
+                <li>Education</li>
+                <li class="C">Contacts</li>
+                <button>RESUME</button>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="hii">
+            <h1>
+                Hi , I am mr.Assignment
+            </h1>
+            <DIV class="oneline">
+                <h3>
+                    An integral part of your success at <span> Explorin Academy </span>
+                </h3>
+            </DIV>
+            <div class="lorem">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, incidunt nemo. Nostrum veritatis
+                praesentium quisquam beatae cum aliquid cumque vel sequi ullam unde fugiat dolorum qui quam, quasi
+                excepturi maiores exercitationem ipsa nam veniam.
+            </div>
+        </div>
+        <div class="photo">
+            
+        </div>
+    </div>
+    <main>
+        <div class="outerskills">
+            <div class="myskills">
+                <h1>My <span>Skills</span></h1>
+            </div>
+            <div class="past">Here are some of my skills on which I have been working on for the past 2 years</div>
+        </div>
+        <div class="skills">
+            <div class="data">
+                <div class="one">
+                    <div class="ds">
+                        <div class="dslogo"> </div>
+                        <div>Data Science </div>
+                    </div>
+                    <div class="ml">
+                        <div class="mllogo"> </div>
+                        <div>Machine Learning </div>
+                    </div>
+                    <div class="html">
+                        <div class="htmllogo"> </div>
+                        <div>HTML </div>
+                    </div>
+                    <div class="css">
+                        <div class="csslogo"> </div>
+                        <div>CSS </div>
+                    </div>
+                    <div class="react">
+                        <div class="reactlogo"> </div>
+                        <div>React </div>
+                    </div>
+                    <div class="ds">
+                        <div class="dslogo"> </div>
+                        <div>Data Science </div>
+                    </div>
+                    <div class="ml">
+                        <div class="mllogo"> </div>
+                        <div>Machine Learning </div>
+                    </div>
+                    <div class="html">
+                        <div class="htmllogo"> </div>
+                        <div>HTML </div>
+                    </div>
+                    <div class="css">
+                        <div class="csslogo"> </div>
+                        <div>CSS </div>
+                    </div>
+                    <div class="react">
+                        <div class="reactlogo"> </div>
+                        <div>React </div>
+                    </div>
+                    <div class="ds">
+                        <div class="dslogo"> </div>
+                        <div>Data Science </div>
+                    </div>
+                    <div class="ml">
+                        <div class="mllogo"> </div>
+                        <div>Machine Learning </div>
+                    </div>
+                    <div class="html">
+                        <div class="htmllogo"> </div>
+                        <div>HTML </div>
+                    </div>
+                    <div class="css">
+                        <div class="csslogo"> </div>
+                        <div>CSS </div>
+                    </div>
+                    <div class="react">
+                        <div class="reactlogo"> </div>
+                        <div>React </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="progress">
+            <div class="my">
+                <h1>My Video <span>Progress</span></h1>
+            </div>
+            <div class="demo">
+                Here is a quick demo of my progress so far in web development
+            </div>
+            <div class="linked">
+                <button>Visit my linkedin</button>
+            </div>
+            <div class="topic">
+                <div class="topic1">
+                    <div class="up">
+                        Youtube video
+                    </div>
+                    <div class="down">
+                        Day 1
+                        <h4>Topic 1</h4>
+                        With coach mr.xyz
+                    </div>
+                </div>
+                <div class="topic1">
+                    <div class="up">
+                        Youtube video
+                    </div>
+                    <div class="down">
+                        Day 2
+                        <h4>Topic 2</h4>
+                        With coach mr.xyz
+                    </div>
+                </div>
+                <div class="topic1">
+                    <div class="up">
+                        Youtube video
+                    </div>
+                    <div class="down">
+                        Day 3
+                        <h4>Topic 3</h4>
+                        With coach mr.xyz
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <h1>Projects</h1>
+        </div>
+        <div class="worked"> I have worked on a wide range of projects. here are some of my projects</div>
+        <div class="p">
+
+            <div class="projectname">
+                <div class="about">
+                    <div class="upp">
+                        
+                    </div>
+                    <div class="down2">
+                        <h4>Project Name</h4>
+                        <h5>About the Project</h5>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolore debitis cumque porro? Ex
+                        aspernatur nesciunt architecto omnis nobis explicabo eum hic pariatur, ducimus quo dolor. Sit neque
+                        eaque modi!
+                    </div>
+                </div>
+                <div class="about">
+                    <div class="upp">
+                        
+                    </div>
+                    <div class="down2">
+                        <h4>Project Name</h4>
+                        <h5>About the Project</h5>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolore debitis cumque porro? Ex
+                        aspernatur nesciunt architecto omnis nobis explicabo eum hic pariatur, ducimus quo dolor. Sit neque
+                        eaque modi!
+                    </div>
+                </div>
+                <div class="about">
+                    <div class="upp">
+                        
+                    </div>
+                    <div class="down2">
+                        <h4>Project Name</h4>
+                        <h5>About the Project</h5>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolore debitis cumque porro? Ex
+                        aspernatur nesciunt architecto omnis nobis explicabo eum hic pariatur, ducimus quo dolor. Sit neque
+                        eaque modi!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="edu">
+            <h1>Education</h1>
+        </div>
+        <div class="details">
+            My education has been a journey of self discovery and growth.
+        </div>
+          <div class="some" >
+           Here are some details.      
+          </div>
+      <div class="outer">
+         <div class="inner1">
+            <div class="exp">
+                <div class="coll"><div> <h3> College name </h3></div>
+                <div><span>2024-25</span></div>
+                <div>B.tech | computer science</div></div>
+               <din class="img2"></din>
+            </div>
+            <div class="exp">
+                <div class="coll"><div> <h3> College name </h3></div>
+                <div><span>2024-25</span></div>
+                <div>B.tech | computer science</div></div>
+               <din class="img2"></din>
+            </div>
+         </div>
+         <div class="inner1">
+            <div class="exp">
+                <div class="coll"><div> <h3> College name </h3></div>
+                <div><span>2024-25</span></div>
+                <div>B.tech | computer science</div></div>
+               <din class="img2"></din>
+            </div>
+            <div class="exp">
+                <div class="coll"><div> <h3> College name </h3></div>
+                <div><span>2024-25</span></div>
+                <div>B.tech | computer science</div></div>
+               <din class="img2"></din>
+            </div>
+         </div>
+      </div>
+    </main>
+<footer>
+    <div class="contact"> <h1><span>Contact</span></h1></div>
+    <div class="feel">Feel free to reach out to me for any question or opportunities!</div>
+    <div class="git">
+        <button><div class="k"><div class="inlogo"><img src=""  alt=""></div> <div class="in">Linkedin</div></div></button>
+        <button><div class="k"><div class="inlogo"><img src="" alt=""></div> <div class="in">myassistant123@gmail.com</div></div></button>
+        <button><div class="k"><div class="inlogo"><img src="" alt=""></div> <div class="in">Github</div></div></button>
+    </div>
+</footer>
+</body>
+
+</html>
